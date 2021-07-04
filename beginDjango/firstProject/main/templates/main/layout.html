@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <script src="https://kit.fontawesome.com/f6fe2d865f.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/off green.png'%}" alt="Лого">
+        <span class="logo">Django Master</span><br><br>
+        <h3>Навигация </h3>
+        <ul>
+            <a href="{% url 'home' %}"> <li class="link_to"> <i class="fas fa-home"></i> Главная</li></a>
+            <a href="{% url 'news_home' %}" class="link_to"><li class="link_to"><i class="far fa-newspaper"></i> Новости</li></a>
+            <a href="{% url 'about' %}" class="link_to"> <li class="link_to"><i class="fab fa-telegram-plane"></i> О нас</li></a>
+            <a href="{% url 'contacts' %}" class="link_to"><li class="link_to"><i class="fas fa-user-alt"></i> Контакты</li></a>
+            <a href="{% url 'django_boy' %}" class="link_to"><li class="link_to"><i class="fas fa-hat-cowboy"></i> Джанго бой</li></a><br>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-edit"></i> Добавить запись</button></li></a>
+        </ul>
+    </aside>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
